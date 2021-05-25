@@ -17,13 +17,14 @@ form.addEventListener("submit", function (event) {
 });
 
 function add(todo) {
-    let todoText = 'Title:' + title.value + ' Todo:' + item.value;
-
-    if (todo) {
-        todoText = todo.text;
-    }
-    // if (todoText.length > 0)も可
+    let todoText;
     if (title.value && item.value) {
+        todoText = 'Title:' + title.value + ' Todo:' + item.value;
+    } else if (todo) {
+        todoText = todo.text;
+    } 
+    // if (todoText.length > 0)も可
+    if (todoText) {
         // liタグ作成
         const li = document.createElement("li");
         li.innerText = todoText;
@@ -55,6 +56,7 @@ function add(todo) {
 function saveData() {
     let todos = [];
     const lists = document.querySelectorAll("li");
+    console.log(lists);
     lists.forEach(list => {
         let todo = {
             text: list.innerText,
