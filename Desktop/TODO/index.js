@@ -1,5 +1,6 @@
 const form = document.getElementById("form");
-const input = document.getElementById("input");
+const title = document.getElementById("title")
+const item = document.getElementById("item");
 const ul = document.getElementById("ul");
 
 const todos = JSON.parse(localStorage.getItem("todos"));
@@ -16,7 +17,7 @@ form.addEventListener("submit", function (event) {
 });
 
 function add(todo) {
-    let todoText = input.value;
+    let todoText = 'Title:' + title.value + ' Todo:' + item.value;
 
     if (todo) {
         todoText = todo.text;
@@ -44,7 +45,8 @@ function add(todo) {
         });
         //　ul内に追加
         ul.appendChild(li);
-        input.value = "";
+        title.value = "";
+        item.value = "";
         saveData();
     }
 }
