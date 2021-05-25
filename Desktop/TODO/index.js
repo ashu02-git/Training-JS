@@ -23,7 +23,7 @@ function add(todo) {
         todoText = todo.text;
     }
     // if (todoText.length > 0)も可
-    if (todoText) {
+    if (title.value && item.value) {
         // liタグ作成
         const li = document.createElement("li");
         li.innerText = todoText;
